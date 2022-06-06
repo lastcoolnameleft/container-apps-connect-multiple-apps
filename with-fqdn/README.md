@@ -50,7 +50,8 @@ az containerapp create \
 DOTNET_FQDN=$(az containerapp show \
   --resource-group 'sample-rg' \
   --name dotnet-app \
-  --query configuration.ingress.fqdn -o tsv)
+  --query properties.configuration.ingress.fqdn -o tsv)
+echo $DOTNET_FQDN
 
 # Deploy the container-1-node node-app
 az containerapp create \
